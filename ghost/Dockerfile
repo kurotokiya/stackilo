@@ -1,16 +1,17 @@
-FROM base/archlinux:2015.06.01
+FROM node:argon
 MAINTAINER kurotokiya <kurotokiya@gmail.com>
 
 # Initialize the environment
-RUN pacman -Syyu --noconfirm
-RUN pacman -S --noconfirm nodejs npm wget unzip
+RUN apt-get update
+RUN apt-get -y install unzip
 
-WORKDIR /usr/src/ghost
+# Group nobody
+RUN groupadd nobody && gpasswd -a nobody nobody
 
 # Populate basic Ghost environment
+WORKDIR /usr/src/ghost
 RUN  wget https://ghost.org/zip/ghost-0.7.5.zip && \
   unzip ghost-0.7.5.zip && \
-  sed -i 's/preinstall/uncheck/g' package.json && \
   npm install --production && \
   mv content content_default
 
