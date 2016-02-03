@@ -18,7 +18,10 @@
         -e GHOST_PROTOCOL="https" \
         -e GHOST_MAILGUN_USER="youruser" \
         -e GHOST_MAILGUN_PASS="yourpass" \
+        -m 256m \
         -p 127.0.0.1:12345:2368 stackilo/ghost
+
+My blog uses 160MB memory at most.So I think 256MB is enough for a personal blog.
 
 #### Proxy Configure
 
