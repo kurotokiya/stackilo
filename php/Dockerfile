@@ -20,6 +20,7 @@ RUN pacman -S --noconfirm php php-fpm php-gd php-geoip php-imap php-mcrypt php-m
 # Config
 WORKDIR /wwwroot
 COPY nginx.conf /etc/nginx
+COPY www.conf /etc/php/php-fpm.d
 COPY run.sh /
 RUN chmod +x /run.sh
 
