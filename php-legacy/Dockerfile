@@ -61,9 +61,8 @@ RUN cd /usr/local/src && \
 # Config and clean
 WORKDIR /wwwroot
 COPY nginx.conf /etc/nginx
-RUN cp /usr/local/src/php-5.3.29/php.ini-production /usr/local/php/etc/php.ini && \
-  mv /usr/local/php/etc/php-fpm.conf.default /usr/local/php/etc/php-fpm.conf
-COPY www.conf /usr/local/php/etc/php-fpm.d/www.conf
+RUN cp /usr/local/src/php-5.3.29/php.ini-production /usr/local/php/etc/php.ini
+COPY www.conf /usr/local/php/etc/php-fpm.conf
 COPY run.sh /
 RUN chmod +x /run.sh
 RUN rm -rf /usr/local/src/*
