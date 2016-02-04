@@ -16,6 +16,7 @@ RUN cd /usr/local/src && \
 
 # Install PHP
 RUN cd /usr/local/src && \
+  wget https://www.openssl.org/source/openssl-0.9.8zb.tar.gz && \
   wget http://php.net/distributions/php-5.3.29.tar.gz && \
   tar xzf php-5.3.29.tar.gz && \
   cd php-5.3.29 && \
@@ -57,6 +58,7 @@ RUN cd /usr/local/src && \
     --enable-zip \
     --enable-soap \
     --disable-debug && \
+    --with-openssl=../openssl-0.9.8zb && \
   make && make install && \
   sed -i 's/PATH="/PATH="\/usr\/local\/php\/bin:/g' /etc/environment
 
