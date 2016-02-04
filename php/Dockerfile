@@ -26,4 +26,4 @@ COPY run.sh /
 COPY rewrite.conf /etc/nginx/conf
 
 EXPOSE 80
-CMD ["./run.sh"]
+CMD ["/run.sh"]
