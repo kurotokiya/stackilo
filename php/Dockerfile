@@ -3,7 +3,7 @@ MAINTAINER kurotokiya <kurotokiya@gmail.com>
 
 # Initialize the environment
 RUN pacman -Syyu --noconfirm
-RUN pacman -S --noconfirm base-devel unzip wget
+RUN pacman -S --noconfirm base-devel unzip wget git
 RUN echo 'nobody ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 RUN groupadd www && useradd -g www www
 
