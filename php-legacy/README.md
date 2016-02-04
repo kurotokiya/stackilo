@@ -1,25 +1,14 @@
-## Stackilo/Ghost
-
-#### Environment
-
- - GHOST_DATA: Path to your Ghost's content dir.If you mount a volume,please set it.
- - GHOST_URL: Your blog URL,without "https" or "http".
- - GHOST_PROTOCOL: The protocol you use,can be set as "https" or "http".
- - GHOST_MAILGUN_USER: Your Mailgun Username.
- - GHOST_MAILGUN_PASS: Your Mailgun Password.
+## Stackilo/PHP Legacy
 
 #### Run
 
-    docker run -d -v /path/to/volume:/mnt/volume/content \
-        -e GHOST_DATA="/mnt/volume/content" \
-        -e GHOST_URL="blog.example.com" \
-        -e GHOST_PROTOCOL="https" \
-        -e GHOST_MAILGUN_USER="youruser" \
-        -e GHOST_MAILGUN_PASS="yourpass" \
-        -m 256m \
-        -p 127.0.0.1:12345:2368 stackilo/ghost
+First, write your own `rewrite.conf` file. I have put some rules in the `rewrite` folder.
 
-My blog uses 160MB memory at most.So I think 256MB is enough for a personal blog.
+Then:
+
+    docker run -d -v /path/to/volume:/wwwroot \
+        -v /path/to/rewrite.conf:/etc/nginx/rewrite.conf \
+        -m 256m -p 12345:80 stackilo/php-legacy
 
 #### Proxy Configure
 
@@ -54,6 +43,3 @@ Nginx configure:
 #### Thanks
 
  - Docker
- - Ghost
- - Nginx
- - PeterCxy

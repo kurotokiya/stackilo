@@ -25,8 +25,5 @@ COPY run.sh /
 RUN chmod +x /run.sh
 RUN rm -rf /usr/local/src/*
 
-# Set rewrite (Please modify this file before build)
-COPY rewrite.conf /etc/nginx
-
 EXPOSE 80
 CMD ["/run.sh"]
