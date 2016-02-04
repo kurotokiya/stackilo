@@ -3,7 +3,8 @@ MAINTAINER kurotokiya <kurotokiya@gmail.com>
 
 # Initialize the environment
 RUN apt-get update
-RUN apt-get -y install libpcre3 libpcre3-dev zlib1g zlib1g-dev build-essential libxml2-dev libpcre3-dev libbz2-dev libcurl4-openssl-dev libjpeg-dev libpng12-dev libxpm-dev libfreetype6-dev libmysqlclient-dev libt1-dev libgd2-xpm-dev libgmp-dev libsasl2-dev libmhash-dev unixodbc-dev freetds-dev libpspell-dev libsnmp-dev libtidy-dev libxslt1-dev libmcrypt-dev
+RUN apt-get -y install wget libpcre3 libpcre3-dev zlib1g zlib1g-dev build-essential libxml2-dev libpcre3-dev libbz2-dev libcurl4-openssl-dev libjpeg-dev libpng12-dev libxpm-dev libfreetype6-dev 
+libmysqlclient-dev libt1-dev libgd2-xpm-dev libgmp-dev libsasl2-dev libmhash-dev unixodbc-dev freetds-dev libpspell-dev libsnmp-dev libtidy-dev libxslt1-dev libmcrypt-dev
 
 # Install Nginx
 RUN cd /usr/local/src && \
