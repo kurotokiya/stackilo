@@ -49,7 +49,6 @@ RUN cd /usr/local/src && \
     --with-mcrypt \
     --with-gd \
     --enable-gd-native-ttf \
-    --with-openssl \
     --with-mhash \
     --enable-pcntl \
     --enable-sockets \
