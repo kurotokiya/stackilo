@@ -1,18 +1,5 @@
-FROM base/archlinux:2015.06.01
+FROM stackilo/nginx:latest
 MAINTAINER kurotokiya <kurotokiya@gmail.com>
-
-# Initialize the environment
-RUN pacman -Syyu --noconfirm
-RUN pacman -S --noconfirm base-devel unzip wget git curl libxml2 libzip gd icu libmcrypt libtool libzip
-RUN echo 'nobody ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
-RUN groupadd www && useradd -g www www
-
-# Install Nginx
-RUN cd /usr/local/src && \
-  git clone https://aur.archlinux.org/nginx-mainline.git && \
-  chmod -R 777 /usr/local/src/nginx-mainline && \
-  cd /usr/local/src/nginx-mainline && \
-  sudo -u nobody makepkg -sci --noconfirm
 
 # Install PHP
 RUN cd /usr/local/src && \
@@ -60,15 +47,11 @@ RUN cd /usr/local/src && \
 
 # Config and clean
 WORKDIR /wwwroot
-COPY nginx.conf /etc/nginx
 RUN cp /usr/local/src/php-5.3.29/php.ini-production /usr/local/php/etc/php.ini
 COPY www.conf /usr/local/php/etc/php-fpm.conf
 COPY run.sh /
 RUN chmod +x /run.sh
 RUN rm -rf /usr/local/src/*
-
-# Set rewrite (Please modify this file before build)
-COPY rewrite.conf /etc/nginx
 
 EXPOSE 80
 CMD ["/run.sh"]
