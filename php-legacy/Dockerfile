@@ -16,7 +16,7 @@ RUN cd /usr/local/src && \
 
 # Install PHP
 RUN cd /usr/local/src && \
-  wget http://php.net/distributions/php-5.3.30.tar.gz && \
+  wget http://php.net/distributions/php-5.5.30.tar.gz && \
   tar xzf php-5.3.30.tar.gz && \
   cd php-5.3.30 && \
   ./configure --prefix=/usr/local/php \
