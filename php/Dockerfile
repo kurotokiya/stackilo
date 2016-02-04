@@ -21,6 +21,7 @@ RUN pacman -S --noconfirm php php-fpm php-gd php-geoip php-imap php-mcrypt php-m
 WORKDIR /wwwroot
 COPY nginx.conf /etc/nginx/conf
 COPY run.sh /
+RUN chmod +x /run.sh
 
 # Set rewrite (Please modify this file before build)
 COPY rewrite.conf /etc/nginx/conf
