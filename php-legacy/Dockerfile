@@ -56,8 +56,7 @@ RUN cd /usr/local/src && \
     --enable-zip \
     --enable-soap \
     --disable-debug && \
-  make && make install && \
-  sed -i 's/PATH="/PATH="\/usr\/local\/php\/bin:/g' /etc/environment
+  make && make install
 
 # Config and clean
 WORKDIR /wwwroot
