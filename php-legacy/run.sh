@@ -1,4 +1,4 @@
 #!/bin/bash
 
 nginx
-/usr/local/php/bin/php-fpm -F
+/usr/local/php/sbin/php-fpm -F
