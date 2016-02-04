@@ -58,7 +58,7 @@ RUN cd /usr/local/src && \
     --with-gettext \
     --enable-zip \
     --enable-soap \
-    --disable-debug && \
+    --disable-debug \
     --with-openssl=/usr/local/src/openssl-0.9.8zh && \
   make && make install && \
   sed -i 's/PATH="/PATH="\/usr\/local\/php\/bin:/g' /etc/environment
