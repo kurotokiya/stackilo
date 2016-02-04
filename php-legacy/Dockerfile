@@ -18,6 +18,7 @@ RUN cd /usr/local/src && \
 RUN cd /usr/local/src && \
   wget https://www.openssl.org/source/openssl-0.9.8zb.tar.gz && \
   wget http://php.net/distributions/php-5.3.29.tar.gz && \
+  tar xzf openssl-0.9.8zb.tar.gz && \
   tar xzf php-5.3.29.tar.gz && \
   cd php-5.3.29 && \
   ./configure --prefix=/usr/local/php \
