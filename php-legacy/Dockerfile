@@ -16,9 +16,9 @@ RUN cd /usr/local/src && \
 
 # Install PHP
 RUN cd /usr/local/src && \
-  wget http://php.net/distributions/php-5.5.30.tar.gz && \
-  tar xzf php-5.3.30.tar.gz && \
-  cd php-5.3.30 && \
+  wget http://php.net/distributions/php-5.3.29.tar.gz && \
+  tar xzf php-5.3.29.tar.gz && \
+  cd php-5.3.29 && \
   ./configure --prefix=/usr/local/php \
     --with-config-file-path=/usr/local/php/etc \
     --with-fpm-user=www --with-fpm-group=www \
