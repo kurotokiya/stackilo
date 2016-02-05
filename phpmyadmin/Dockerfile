@@ -11,7 +11,7 @@ RUN cd /usr/local/src && \
 
 RUN mv config.sample.inc.php config.inc.php && \
   echo "\$cfg['blowfish_secret'] = 'ljglaksjfkldsajfls';" >> config.inc.php && \
-  echo "\$cfg['Servers'][0]['host'] = '127.0.0.1';" >> config.inc.php
+  echo "\$cfg['Servers'][0]['host'] = 'mysql';" >> config.inc.php
 
 EXPOSE 80
 CMD ["/run.sh"]
