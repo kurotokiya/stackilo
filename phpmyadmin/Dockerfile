@@ -15,5 +15,7 @@ RUN mv config.sample.inc.php config.inc.php && \
 
 RUN rm -rf /usr/local/src/*
 
+COPY config.inc.php /wwwroot/config.inc.php
+
 EXPOSE 80
 CMD ["/run.sh"]
