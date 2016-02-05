@@ -12,7 +12,8 @@ RUN cd /usr/local/src && \
     --enable-fpm \
     --disable-fileinfo \
     --enable-mysqlnd \
-     --with-mysqli=mysqlnd \
+    --with-mysql=mysqlnd \
+    --with-mysqli=mysqlnd \
     --with-pdo-mysql=mysqlnd \
     --with-iconv-dir=/usr/local \
     --with-freetype-dir \
