@@ -47,7 +47,9 @@ RUN cd /usr/local/src && \
 
 # Config and clean
 WORKDIR /wwwroot
-RUN cp /usr/local/src/php-5.3.29/php.ini-production /usr/local/php/etc/php.ini
+RUN cp /usr/local/src/php-5.3.29/php.ini-production /usr/local/php/etc/php.ini && \
+  sed -i 's/post_max_size = 8M/post_max_size = 64M/g' /usr/local/php/etc/php.ini && \
+  sed -i 's/upload_max_filesize = 2M/upload_max_filesize = 64M/g' /usr/local/php/etc/php.ini
 COPY www.conf /usr/local/php/etc/php-fpm.conf
 COPY run.sh /
 RUN chmod +x /run.sh

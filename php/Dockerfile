@@ -17,6 +17,9 @@ RUN sed -i 's/;extension=gd.so/extension=gd.so/g' /etc/php/php.ini && \
   sed -i 's/;extension=sqlite3.so/extension=sqlite3.so/g' /etc/php/php.ini && \
   sed -i 's/;extension=xmlrpc.so/extension=xmlrpc.so/g' /etc/php/php.ini
 
+RUN sed -i 's/post_max_size = 8M/post_max_size = 64M/g' /etc/php/php.ini && \
+  sed -i 's/upload_max_filesize = 2M/upload_max_filesize = 64M/g' /etc/php/php.ini
+
 # Config and clean
 WORKDIR /wwwroot
 COPY www.conf /etc/php/php-fpm.d
