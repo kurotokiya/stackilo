@@ -5,5 +5,8 @@ MAINTAINER kurotokiya <kurotokiya@gmail.com>
 RUN pacman -Syyu --noconfirm
 RUN pacman -S --noconfirm shadowsocks-libev
 
+COPY run.sh /run.sh
+RUN chmod +x /run.sh
+
 EXPOSE 12345
-CMD ["ss-server -c /config.json"]
+CMD ["/run.sh"]
